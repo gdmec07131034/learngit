@@ -1,0 +1,21 @@
+<view style="background:{{diypages.page.background}}">
+    <block wx:for="{{diypages.items}}" wx:for-index="diyitemid" wx:for-item="diyitem">
+        <include src="template/tpl_fixedsearch.wxml" wx:if="{{diyitem.id=='fixedsearch'}}"></include>
+        <include src="template/tpl_banner.wxml" wx:if="{{diyitem.id=='banner'}}"></include>
+        <include src="template/tpl_search.wxml" wx:if="{{diyitem.id=='search'}}"></include>
+        <include src="template/tpl_notice.wxml" wx:if="{{diyitem.id=='notice'}}"></include>
+        <include src="template/tpl_line.wxml" wx:if="{{diyitem.id=='line'}}"></include>
+        <include src="template/tpl_blank.wxml" wx:if="{{diyitem.id=='blank'}}"></include>
+        <include src="template/tpl_title.wxml" wx:if="{{diyitem.id=='title'}}"></include>
+        <include src="template/tpl_menu.wxml" wx:if="{{diyitem.id=='menu'}}"></include>
+        <include src="template/tpl_menu2.wxml" wx:if="{{diyitem.id=='menu2'}}"></include>
+        <include src="template/tpl_listmenu.wxml" wx:if="{{diyitem.id=='listmenu'}}"></include>
+        <include src="template/tpl_picture.wxml" wx:if="{{diyitem.id=='picture'}}"></include>
+        <include src="template/tpl_picturew.wxml" wx:if="{{diyitem.id=='picturew'}}"></include>
+        <include src="template/tpl_coupon.wxml" wx:if="{{diyitem.id=='coupon'}}"></include>
+        <include src="template/tpl_goods.wxml" wx:if="{{diyitem.id=='goods'}}"></include>
+        <include src="template/tpl_richtext.wxml" wx:if="{{diyitem.id=='richtext'}}"></include>
+        <include src="template/tpl_video.wxml" wx:if="{{diyitem.id=='video'}}"></include>
+        <include src="template/tpl_copyright.wxml" wx:if="{{diyitem.id=='copyright'}}"></include>
+    </block>
+</view>

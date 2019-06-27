@@ -1,0 +1,66 @@
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page" wx:if="{{show}}">
+    <view class="fui-tab fixed fui-tab-danger">
+        <view bindtap="selected" class="item  {{cate==''?'active':''}}" data-cate="">未完成</view>
+        <view bindtap="selected" class="item  {{cate=='used'?'active':''}}" data-cate="used">已完成</view>
+        <view bindtap="selected" class="item  {{cate=='past'?'active':''}}" data-cate="past">已过期</view>
+    </view>
+    <view class="coupon-list-group">
+        <navigator class="coupon-list  {{item.classstr}}" url="/pages/verifygoods/detail/index?id= {{item.id}}" wx:for="{{list}}">
+            <view class="coupon-left">
+                <view class="coupon-title">
+                    <view class="coupon-list-media">
+                        <image src="{{item.thumb}}"></image>
+                    </view>
+                    <view class="coupon-inner">
+                        <view>
+                  {{item.title}}
+                </view>
+                    </view>
+                </view>
+                <view class="coupon-time">
+              有效日期： {{item.termofvalidity}}
+            </view>
+            </view>
+            <view class="coupon-right">
+                <view class="text" wx:if="{{item.numlimit>'0'}}">可用次数</view>
+                <view class="text" wx:else>剩余天数</view>
+                <view class="num">
+                    <span style="font-size:40rpx;font-weight:bold;">{{item.surplusnum}}</span>
+                </view>
+            </view>
+        </navigator>
+        <view class="fui-loading" wx:if="{{loading}}">
+            <view class="icon"></view>
+            <view class="text">正在加载</view>
+        </view>
+        <view class="fui-loading empty" wx:if="{{loaded&&list.length>'0'}}">
+            <view class="text">没有更多了</view>
+        </view>
+        <view class="fui-loading empty" wx:if="{{total<='0'&&!loading}}">
+            <view class="text">没有数据</view>
+        </view>
+    </view>
+    <view hidden class="fui-navbar">
+        <navigator class="nav-item  {{route!='home'||'active'}}" hoverClass="none" openType="reLaunch" url="/pages/index/index">
+            <image class="icon" src="{{route=='home'?icons.home_red:icons.home}}"></image>
+            <text class="label">商城首页</text>
+        </navigator>
+        <navigator class="nav-item  {{route!='category'||'active'}}" hoverClass="none" openType="reLaunch" url="/pages/shop/caregory/index">
+            <image class="icon" src="{{route=='category'?icons.cate_red:icons.cate}}"></image>
+            <text class="label">全部分类</text>
+        </navigator>
+        <navigator class="nav-item  {{route!='cart'||'active'}}" hoverClass="none" openType="reLaunch" url="/pages/member/cart/index">
+            <view class="badge" wx:if="{{cartcount>'0'}}">{{cartcount}}</view>
+            <image class="icon" src="{{route=='cart'?icons.cart_red:icons.cart}}"></image>
+            <text class="label">购物车</text>
+        </navigator>
+        <navigator class="nav-item  {{route!='member'||'active'}}" hoverClass="none" openType="reLaunch" url="/pages/member/index/index">
+            <image class="icon" src="{{route=='member'?icons.people_red:icons.people}}"></image>
+            <text class="label">会员中心</text>
+        </navigator>
+    </view>
+    <view class="fui-toast  {{FoxUIToast.show?'in':'out'}}">
+        <view class="text">{{FoxUIToast.text}}</view>
+    </view>
+</view>

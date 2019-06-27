@@ -1,0 +1,56 @@
+<loading wx:if="{{!show}}">加载中...</loading>
+<view class="page" wx:if="{{show}}">
+    <view class="fui-list-group" wx:for="{{list}}">
+        <navigator class="fui-list goods-item" openType="redirect" url="/pages/goods/package/detail/index?id= {{item.id}}">
+            <view class="fui-list-media">
+                <image class="goods_img" src="{{item.thumb}}"></image>
+            </view>
+            <view class="fui-list-inner">
+                <view class="name">{{item.title}}</view>
+                <view class="orderprice">
+							商品总价：
+							<span> ¥ {{item.goodsprice}} </span>
+                </view>
+                <view class="price">
+                    <span class="text">套餐价：¥ {{item.price}}</span>
+                </view>
+            </view>
+            <view class="fui-list-angle">
+                <view class="angle"></view>
+            </view>
+        </navigator>
+        <view class="fui-cell-group fui-comment-group">
+            <view id="package">
+                <navigator hoverClass="none" id="package_list" openType="redirect" style="width: {{item.goods.length*'220'-'20'}} rpx" url="/pages/goods/package/detail/index?id= {{item.id}}">
+                    <view class="package-goods package-goods3" wx:for="{{item.goods}}" wx:for-item="item2">
+                        <image class="package-goods-img" src="{{item2.thumb}}"></image>
+                        <p>{{item2.title}}</p>
+                        <text class="icox icox-tianjiazhuanhuan"></text>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view hidden class="fui-navbar">
+        <navigator class="nav-item  {{route!='home'||'active'}}" hoverClass="none" openType="reLaunch" url="/pages/index/index">
+            <image class="icon" src="{{route=='home'?icons.home_red:icons.home}}"></image>
+            <text class="label">商城首页</text>
+        </navigator>
+        <navigator class="nav-item  {{route!='category'||'active'}}" hoverClass="none" openType="reLaunch" url="/pages/shop/caregory/index">
+            <image class="icon" src="{{route=='category'?icons.cate_red:icons.cate}}"></image>
+            <text class="label">全部分类</text>
+        </navigator>
+        <navigator class="nav-item  {{route!='cart'||'active'}}" hoverClass="none" openType="reLaunch" url="/pages/member/cart/index">
+            <view class="badge" wx:if="{{cartcount>'0'}}">{{cartcount}}</view>
+            <image class="icon" src="{{route=='cart'?icons.cart_red:icons.cart}}"></image>
+            <text class="label">购物车</text>
+        </navigator>
+        <navigator class="nav-item  {{route!='member'||'active'}}" hoverClass="none" openType="reLaunch" url="/pages/member/index/index">
+            <image class="icon" src="{{route=='member'?icons.people_red:icons.people}}"></image>
+            <text class="label">会员中心</text>
+        </navigator>
+    </view>
+    <view class="fui-toast  {{FoxUIToast.show?'in':'out'}}">
+        <view class="text">{{FoxUIToast.text}}</view>
+    </view>
+</view>

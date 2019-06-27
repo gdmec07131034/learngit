@@ -1,0 +1,13 @@
+<view class="model" wx:if="{{modelShow}}">
+    <view class="inner">
+        <view class="title">用户未授权</view>
+        <view class="image">
+            <image src="/static/images/shouquan.png"></image>
+        </view>
+        <view class="subtitle">您需要先开启【用户信息】，才能使用此功能哦~</view>
+        <view class="model-btns">
+            <view bindtap="cancelclick" class="cancel">取消</view>
+            <view bindtap="confirmclick" class="confirm">去设置</view>
+        </view>
+    </view>
+</view>

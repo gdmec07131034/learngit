@@ -1,0 +1,10 @@
+<view class="fui-copyright-group" wx:if="{{diyitem.style.showtype!='0'}}">
+    <image src="{{diyitem.params.imgurl}}" wx:if="{{diyitem.params.showimg=='1'}}"></image>
+    <span class="copyright_cover" style="text-align:left; font-size: 24rpx; vertical-align: middle;max-width:530rpx;display:inline-block;">
+                  {{diyitem.params.copyright}}
+            </span>
+</view>
+<view class="fui-copyright2-group" wx:if="{{diyitem.style.showtype=='0'}}">
+    <image src="{{diyitem.params.imgurl}}" style="width: 60rpx;height: 60rpx;" wx:if="{{diyitem.params.showimg=='1'}}"></image>
+    <view class="copyright_cover" style="font-size: 24rpx;line-height: 60rpx;">{{diyitem.params.copyright}}</view>
+</view>
